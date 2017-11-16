@@ -1,0 +1,265 @@
+
+bar_graph_demo_skel.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000002  00800100  00000188  0000021c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000188  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000001  00800102  00800102  0000021e  2**0
+                  ALLOC
+  3 .stab         000006b4  00000000  00000000  00000220  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000c2c  00000000  00000000  000008d4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .comment      00000011  00000000  00000000  00001500  2**0
+                  CONTENTS, READONLY
+  6 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00001514  2**2
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 46 00 	jmp	0x8c	; 0x8c <__ctors_end>
+   4:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+   8:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+   c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  10:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  14:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  18:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  1c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  20:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  24:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  28:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  2c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  30:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  34:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  38:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  3c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  40:	0c 94 79 00 	jmp	0xf2	; 0xf2 <__vector_16>
+  44:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  48:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  4c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  50:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  54:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  58:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  5c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  60:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  64:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  68:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  6c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  70:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  74:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  78:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  7c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  80:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  84:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  88:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e1       	ldi	r29, 0x10	; 16
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+
+00000098 <__do_copy_data>:
+  98:	11 e0       	ldi	r17, 0x01	; 1
+  9a:	a0 e0       	ldi	r26, 0x00	; 0
+  9c:	b1 e0       	ldi	r27, 0x01	; 1
+  9e:	e8 e8       	ldi	r30, 0x88	; 136
+  a0:	f1 e0       	ldi	r31, 0x01	; 1
+  a2:	00 e0       	ldi	r16, 0x00	; 0
+  a4:	0b bf       	out	0x3b, r16	; 59
+  a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
+  a8:	07 90       	elpm	r0, Z+
+  aa:	0d 92       	st	X+, r0
+  ac:	a2 30       	cpi	r26, 0x02	; 2
+  ae:	b1 07       	cpc	r27, r17
+  b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
+
+000000b2 <__do_clear_bss>:
+  b2:	21 e0       	ldi	r18, 0x01	; 1
+  b4:	a2 e0       	ldi	r26, 0x02	; 2
+  b6:	b1 e0       	ldi	r27, 0x01	; 1
+  b8:	01 c0       	rjmp	.+2      	; 0xbc <.do_clear_bss_start>
+
+000000ba <.do_clear_bss_loop>:
+  ba:	1d 92       	st	X+, r1
+
+000000bc <.do_clear_bss_start>:
+  bc:	a3 30       	cpi	r26, 0x03	; 3
+  be:	b2 07       	cpc	r27, r18
+  c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
+  c2:	0e 94 b0 00 	call	0x160	; 0x160 <main>
+  c6:	0c 94 c2 00 	jmp	0x184	; 0x184 <_exit>
+
+000000ca <__bad_interrupt>:
+  ca:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000ce <spi_init>:
+//external device specific initalizations.  Sets up SPI to be:                        
+//master mode, clock=clk/2, cycle half phase, low polarity, MSB first
+//interrupts disabled, poll SPIF bit in SPSR to check xmit completion
+/***********************************************************************/
+void spi_init(void){
+  DDRB  |=   (1<<DDB2)|(1<<DDB1)|(1<<DDB0);  //Turn on SS, MOSI, SCLK
+  ce:	87 b3       	in	r24, 0x17	; 23
+  d0:	87 60       	ori	r24, 0x07	; 7
+  d2:	87 bb       	out	0x17, r24	; 23
+  SPCR  |=   (1<<SPE)|(1<<MSTR)|(0<<CPOL)|(0<<CPHA); //enable SPI, master mode 
+  d4:	8d b1       	in	r24, 0x0d	; 13
+  d6:	80 65       	ori	r24, 0x50	; 80
+  d8:	8d b9       	out	0x0d, r24	; 13
+  SPSR  |=   (1<<SPI2X);  // double speed operation
+  da:	70 9a       	sbi	0x0e, 0	; 14
+  dc:	08 95       	ret
+
+000000de <tcnt0_init>:
+//Initalizes timer/counter0 (TCNT0). TCNT0 is running in async mode
+//with external 32khz crystal.  Runs in normal mode with no prescaling.
+//Interrupt occurs at overflow 0xFF.
+//
+void tcnt0_init(void){
+  ASSR   |=  (1<<AS0); //ext osc TOSC
+  de:	80 b7       	in	r24, 0x30	; 48
+  e0:	88 60       	ori	r24, 0x08	; 8
+  e2:	80 bf       	out	0x30, r24	; 48
+  TIMSK  |=  (1<<TOIE0); //enable TCNT0 overflow interrupt
+  e4:	87 b7       	in	r24, 0x37	; 55
+  e6:	81 60       	ori	r24, 0x01	; 1
+  e8:	87 bf       	out	0x37, r24	; 55
+  TCCR0  |=  (1<<CS00); //normal mode, no prescale
+  ea:	83 b7       	in	r24, 0x33	; 51
+  ec:	81 60       	ori	r24, 0x01	; 1
+  ee:	83 bf       	out	0x33, r24	; 51
+  f0:	08 95       	ret
+
+000000f2 <__vector_16>:
+//TCNT0 interrupts come at 7.8125ms internals.
+// 1/32768         = 30.517578uS
+//(1/32768)*256    = 7.8125ms
+//(1/32768)*256*64 = 500mS
+/*************************************************************************/
+ISR(TIMER0_OVF_vect){
+  f2:	1f 92       	push	r1
+  f4:	0f 92       	push	r0
+  f6:	0f b6       	in	r0, 0x3f	; 63
+  f8:	0f 92       	push	r0
+  fa:	11 24       	eor	r1, r1
+  fc:	2f 93       	push	r18
+  fe:	8f 93       	push	r24
+ 100:	9f 93       	push	r25
+  static uint8_t count_7ms = 0;        //holds 7ms tick count in binary
+  static uint8_t display_count = 0x01; //holds count for display 
+
+  count_7ms++;                //increment count every 7.8125 ms 
+ 102:	80 91 02 01 	lds	r24, 0x0102
+ 106:	8f 5f       	subi	r24, 0xFF	; 255
+ 108:	80 93 02 01 	sts	0x0102, r24
+  if ((count_7ms % 71)==0){ //?? interrupts equals one half second 
+ 10c:	97 ee       	ldi	r25, 0xE7	; 231
+ 10e:	89 9f       	mul	r24, r25
+ 110:	91 2d       	mov	r25, r1
+ 112:	11 24       	eor	r1, r1
+ 114:	92 95       	swap	r25
+ 116:	96 95       	lsr	r25
+ 118:	96 95       	lsr	r25
+ 11a:	93 70       	andi	r25, 0x03	; 3
+ 11c:	27 e4       	ldi	r18, 0x47	; 71
+ 11e:	92 9f       	mul	r25, r18
+ 120:	80 19       	sub	r24, r0
+ 122:	11 24       	eor	r1, r1
+ 124:	88 23       	and	r24, r24
+ 126:	79 f0       	breq	.+30     	; 0x146 <__vector_16+0x54>
+ 128:	80 91 00 01 	lds	r24, 0x0100
+    while(bit_is_clear(SPSR, SPIF)){}               //wait till data sent out (while loop)
+    PORTB |= 0x01;          //HC595 output reg - rising edge...
+    PORTB &= ~0x01;          //and falling edge
+    display_count = (display_count << 1); //shift display bit for next time 
+  }
+  if (display_count == 0x00){display_count=0x01;} //back to 1st positon
+ 12c:	81 11       	cpse	r24, r1
+ 12e:	03 c0       	rjmp	.+6      	; 0x136 <__vector_16+0x44>
+ 130:	81 e0       	ldi	r24, 0x01	; 1
+ 132:	80 93 00 01 	sts	0x0100, r24
+}
+ 136:	9f 91       	pop	r25
+ 138:	8f 91       	pop	r24
+ 13a:	2f 91       	pop	r18
+ 13c:	0f 90       	pop	r0
+ 13e:	0f be       	out	0x3f, r0	; 63
+ 140:	0f 90       	pop	r0
+ 142:	1f 90       	pop	r1
+ 144:	18 95       	reti
+  static uint8_t count_7ms = 0;        //holds 7ms tick count in binary
+  static uint8_t display_count = 0x01; //holds count for display 
+
+  count_7ms++;                //increment count every 7.8125 ms 
+  if ((count_7ms % 71)==0){ //?? interrupts equals one half second 
+    SPDR = display_count;               //send to display 
+ 146:	80 91 00 01 	lds	r24, 0x0100
+ 14a:	8f b9       	out	0x0f, r24	; 15
+    while(bit_is_clear(SPSR, SPIF)){}               //wait till data sent out (while loop)
+ 14c:	77 9b       	sbis	0x0e, 7	; 14
+ 14e:	fe cf       	rjmp	.-4      	; 0x14c <__vector_16+0x5a>
+    PORTB |= 0x01;          //HC595 output reg - rising edge...
+ 150:	c0 9a       	sbi	0x18, 0	; 24
+    PORTB &= ~0x01;          //and falling edge
+ 152:	c0 98       	cbi	0x18, 0	; 24
+    display_count = (display_count << 1); //shift display bit for next time 
+ 154:	80 91 00 01 	lds	r24, 0x0100
+ 158:	88 0f       	add	r24, r24
+ 15a:	80 93 00 01 	sts	0x0100, r24
+ 15e:	e6 cf       	rjmp	.-52     	; 0x12c <__vector_16+0x3a>
+
+00000160 <main>:
+//Initalizes timer/counter0 (TCNT0). TCNT0 is running in async mode
+//with external 32khz crystal.  Runs in normal mode with no prescaling.
+//Interrupt occurs at overflow 0xFF.
+//
+void tcnt0_init(void){
+  ASSR   |=  (1<<AS0); //ext osc TOSC
+ 160:	80 b7       	in	r24, 0x30	; 48
+ 162:	88 60       	ori	r24, 0x08	; 8
+ 164:	80 bf       	out	0x30, r24	; 48
+  TIMSK  |=  (1<<TOIE0); //enable TCNT0 overflow interrupt
+ 166:	87 b7       	in	r24, 0x37	; 55
+ 168:	81 60       	ori	r24, 0x01	; 1
+ 16a:	87 bf       	out	0x37, r24	; 55
+  TCCR0  |=  (1<<CS00); //normal mode, no prescale
+ 16c:	83 b7       	in	r24, 0x33	; 51
+ 16e:	81 60       	ori	r24, 0x01	; 1
+ 170:	83 bf       	out	0x33, r24	; 51
+//external device specific initalizations.  Sets up SPI to be:                        
+//master mode, clock=clk/2, cycle half phase, low polarity, MSB first
+//interrupts disabled, poll SPIF bit in SPSR to check xmit completion
+/***********************************************************************/
+void spi_init(void){
+  DDRB  |=   (1<<DDB2)|(1<<DDB1)|(1<<DDB0);  //Turn on SS, MOSI, SCLK
+ 172:	87 b3       	in	r24, 0x17	; 23
+ 174:	87 60       	ori	r24, 0x07	; 7
+ 176:	87 bb       	out	0x17, r24	; 23
+  SPCR  |=   (1<<SPE)|(1<<MSTR)|(0<<CPOL)|(0<<CPHA); //enable SPI, master mode 
+ 178:	8d b1       	in	r24, 0x0d	; 13
+ 17a:	80 65       	ori	r24, 0x50	; 80
+ 17c:	8d b9       	out	0x0d, r24	; 13
+  SPSR  |=   (1<<SPI2X);  // double speed operation
+ 17e:	70 9a       	sbi	0x0e, 0	; 14
+//                                main                                 
+/***********************************************************************/
+int main(){     
+tcnt0_init();  //initalize counter timer zero
+spi_init();    //initalize SPI port
+sei();         //enable interrupts before entering loop
+ 180:	78 94       	sei
+while(1){}     //empty main while loop
+ 182:	ff cf       	rjmp	.-2      	; 0x182 <main+0x22>
+
+00000184 <_exit>:
+ 184:	f8 94       	cli
+
+00000186 <__stop_program>:
+ 186:	ff cf       	rjmp	.-2      	; 0x186 <__stop_program>

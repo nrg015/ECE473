@@ -1,0 +1,543 @@
+
+lab2_skel.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         0000000c  00800100  0000035c  000003f0  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         0000035c  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000015  0080010c  0080010c  000003fc  2**0
+                  ALLOC
+  3 .stab         00000774  00000000  00000000  000003fc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000c94  00000000  00000000  00000b70  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .comment      00000011  00000000  00000000  00001804  2**0
+                  CONTENTS, READONLY
+  6 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00001818  2**2
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 46 00 	jmp	0x8c	; 0x8c <__ctors_end>
+   4:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+   8:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+   c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  10:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  14:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  18:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  1c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  20:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  24:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  28:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  2c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  30:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  34:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  38:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  3c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  40:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  44:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  48:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  4c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  50:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  54:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  58:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  5c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  60:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  64:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  68:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  6c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  70:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  74:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  78:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  7c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  80:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  84:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  88:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e1       	ldi	r29, 0x10	; 16
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+
+00000098 <__do_copy_data>:
+  98:	11 e0       	ldi	r17, 0x01	; 1
+  9a:	a0 e0       	ldi	r26, 0x00	; 0
+  9c:	b1 e0       	ldi	r27, 0x01	; 1
+  9e:	ec e5       	ldi	r30, 0x5C	; 92
+  a0:	f3 e0       	ldi	r31, 0x03	; 3
+  a2:	00 e0       	ldi	r16, 0x00	; 0
+  a4:	0b bf       	out	0x3b, r16	; 59
+  a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
+  a8:	07 90       	elpm	r0, Z+
+  aa:	0d 92       	st	X+, r0
+  ac:	ac 30       	cpi	r26, 0x0C	; 12
+  ae:	b1 07       	cpc	r27, r17
+  b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
+
+000000b2 <__do_clear_bss>:
+  b2:	21 e0       	ldi	r18, 0x01	; 1
+  b4:	ac e0       	ldi	r26, 0x0C	; 12
+  b6:	b1 e0       	ldi	r27, 0x01	; 1
+  b8:	01 c0       	rjmp	.+2      	; 0xbc <.do_clear_bss_start>
+
+000000ba <.do_clear_bss_loop>:
+  ba:	1d 92       	st	X+, r1
+
+000000bc <.do_clear_bss_start>:
+  bc:	a1 32       	cpi	r26, 0x21	; 33
+  be:	b2 07       	cpc	r27, r18
+  c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
+  c2:	0e 94 35 01 	call	0x26a	; 0x26a <main>
+  c6:	0c 94 ac 01 	jmp	0x358	; 0x358 <_exit>
+
+000000ca <__bad_interrupt>:
+  ca:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000ce <chk_buttons>:
+//push so a debounce and toggle function can be implemented at the same time.  
+//Adapted to check all buttons from Ganssel's "Guide to Debouncing"            
+//Expects active low pushbuttons on PINA port.  Debounce time is determined by 
+//external loop delay times 12. 
+//
+uint8_t chk_buttons(uint8_t button) {
+  ce:	48 2f       	mov	r20, r24
+	static uint16_t state[8] = {0};
+	state[button] = (state[button]<<1) | (! bit_is_clear(PINA, button)) | 0xE000;
+  d0:	e8 2f       	mov	r30, r24
+  d2:	f0 e0       	ldi	r31, 0x00	; 0
+  d4:	99 b3       	in	r25, 0x19	; 25
+  d6:	ee 0f       	add	r30, r30
+  d8:	ff 1f       	adc	r31, r31
+  da:	e4 5f       	subi	r30, 0xF4	; 244
+  dc:	fe 4f       	sbci	r31, 0xFE	; 254
+  de:	20 81       	ld	r18, Z
+  e0:	31 81       	ldd	r19, Z+1	; 0x01
+  e2:	22 0f       	add	r18, r18
+  e4:	33 1f       	adc	r19, r19
+  e6:	30 6e       	ori	r19, 0xE0	; 224
+  e8:	89 2f       	mov	r24, r25
+  ea:	90 e0       	ldi	r25, 0x00	; 0
+  ec:	02 c0       	rjmp	.+4      	; 0xf2 <chk_buttons+0x24>
+  ee:	95 95       	asr	r25
+  f0:	87 95       	ror	r24
+  f2:	4a 95       	dec	r20
+  f4:	e2 f7       	brpl	.-8      	; 0xee <chk_buttons+0x20>
+  f6:	81 70       	andi	r24, 0x01	; 1
+  f8:	99 27       	eor	r25, r25
+  fa:	28 2b       	or	r18, r24
+  fc:	39 2b       	or	r19, r25
+  fe:	31 83       	std	Z+1, r19	; 0x01
+ 100:	20 83       	st	Z, r18
+	if (state[button] == 0xF000) return 1;
+ 102:	81 e0       	ldi	r24, 0x01	; 1
+ 104:	21 15       	cp	r18, r1
+ 106:	30 4f       	sbci	r19, 0xF0	; 240
+ 108:	09 f0       	breq	.+2      	; 0x10c <chk_buttons+0x3e>
+ 10a:	80 e0       	ldi	r24, 0x00	; 0
+	return 0;
+}
+ 10c:	08 95       	ret
+
+0000010e <segsum>:
+//***********************************************************************************
+//                                   segment_sum                                    
+//takes a 16-bit binary input value and places the appropriate equivalent 4 digit 
+//BCD segment code in the array segment_data for display.                       
+//array is loaded at exit as:  |digit3|digit2|colon|digit1|digit0|
+void segsum(uint16_t sum) {
+ 10e:	cf 93       	push	r28
+ 110:	df 93       	push	r29
+ 112:	ec 01       	movw	r28, r24
+	//determine how many digits there are 
+  	 //break up decimal sum into 4 digit-segments
+	segment_data[0] = dec_to_7seg[(sum) % 10];
+ 114:	9c 01       	movw	r18, r24
+ 116:	ad ec       	ldi	r26, 0xCD	; 205
+ 118:	bc ec       	ldi	r27, 0xCC	; 204
+ 11a:	0e 94 9d 01 	call	0x33a	; 0x33a <__umulhisi3>
+ 11e:	ac 01       	movw	r20, r24
+ 120:	56 95       	lsr	r21
+ 122:	47 95       	ror	r20
+ 124:	56 95       	lsr	r21
+ 126:	47 95       	ror	r20
+ 128:	56 95       	lsr	r21
+ 12a:	47 95       	ror	r20
+ 12c:	9a 01       	movw	r18, r20
+ 12e:	22 0f       	add	r18, r18
+ 130:	33 1f       	adc	r19, r19
+ 132:	ca 01       	movw	r24, r20
+ 134:	88 0f       	add	r24, r24
+ 136:	99 1f       	adc	r25, r25
+ 138:	88 0f       	add	r24, r24
+ 13a:	99 1f       	adc	r25, r25
+ 13c:	88 0f       	add	r24, r24
+ 13e:	99 1f       	adc	r25, r25
+ 140:	82 0f       	add	r24, r18
+ 142:	93 1f       	adc	r25, r19
+ 144:	fe 01       	movw	r30, r28
+ 146:	e8 1b       	sub	r30, r24
+ 148:	f9 0b       	sbc	r31, r25
+ 14a:	e0 50       	subi	r30, 0x00	; 0
+ 14c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 14e:	80 81       	ld	r24, Z
+ 150:	80 93 1c 01 	sts	0x011C, r24
+	segment_data[1] = dec_to_7seg[(sum/10) % 10];
+ 154:	9a 01       	movw	r18, r20
+ 156:	0e 94 9d 01 	call	0x33a	; 0x33a <__umulhisi3>
+ 15a:	96 95       	lsr	r25
+ 15c:	87 95       	ror	r24
+ 15e:	96 95       	lsr	r25
+ 160:	87 95       	ror	r24
+ 162:	96 95       	lsr	r25
+ 164:	87 95       	ror	r24
+ 166:	9c 01       	movw	r18, r24
+ 168:	22 0f       	add	r18, r18
+ 16a:	33 1f       	adc	r19, r19
+ 16c:	88 0f       	add	r24, r24
+ 16e:	99 1f       	adc	r25, r25
+ 170:	88 0f       	add	r24, r24
+ 172:	99 1f       	adc	r25, r25
+ 174:	88 0f       	add	r24, r24
+ 176:	99 1f       	adc	r25, r25
+ 178:	82 0f       	add	r24, r18
+ 17a:	93 1f       	adc	r25, r19
+ 17c:	48 1b       	sub	r20, r24
+ 17e:	59 0b       	sbc	r21, r25
+ 180:	fa 01       	movw	r30, r20
+ 182:	e0 50       	subi	r30, 0x00	; 0
+ 184:	ff 4f       	sbci	r31, 0xFF	; 255
+ 186:	80 81       	ld	r24, Z
+ 188:	80 93 1d 01 	sts	0x011D, r24
+	segment_data[3] = dec_to_7seg[(sum/100) % 10];
+ 18c:	9e 01       	movw	r18, r28
+ 18e:	36 95       	lsr	r19
+ 190:	27 95       	ror	r18
+ 192:	36 95       	lsr	r19
+ 194:	27 95       	ror	r18
+ 196:	ab e7       	ldi	r26, 0x7B	; 123
+ 198:	b4 e1       	ldi	r27, 0x14	; 20
+ 19a:	0e 94 9d 01 	call	0x33a	; 0x33a <__umulhisi3>
+ 19e:	ac 01       	movw	r20, r24
+ 1a0:	56 95       	lsr	r21
+ 1a2:	47 95       	ror	r20
+ 1a4:	9a 01       	movw	r18, r20
+ 1a6:	ad ec       	ldi	r26, 0xCD	; 205
+ 1a8:	bc ec       	ldi	r27, 0xCC	; 204
+ 1aa:	0e 94 9d 01 	call	0x33a	; 0x33a <__umulhisi3>
+ 1ae:	96 95       	lsr	r25
+ 1b0:	87 95       	ror	r24
+ 1b2:	96 95       	lsr	r25
+ 1b4:	87 95       	ror	r24
+ 1b6:	96 95       	lsr	r25
+ 1b8:	87 95       	ror	r24
+ 1ba:	9c 01       	movw	r18, r24
+ 1bc:	22 0f       	add	r18, r18
+ 1be:	33 1f       	adc	r19, r19
+ 1c0:	88 0f       	add	r24, r24
+ 1c2:	99 1f       	adc	r25, r25
+ 1c4:	88 0f       	add	r24, r24
+ 1c6:	99 1f       	adc	r25, r25
+ 1c8:	88 0f       	add	r24, r24
+ 1ca:	99 1f       	adc	r25, r25
+ 1cc:	82 0f       	add	r24, r18
+ 1ce:	93 1f       	adc	r25, r19
+ 1d0:	48 1b       	sub	r20, r24
+ 1d2:	59 0b       	sbc	r21, r25
+ 1d4:	fa 01       	movw	r30, r20
+ 1d6:	e0 50       	subi	r30, 0x00	; 0
+ 1d8:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1da:	80 81       	ld	r24, Z
+ 1dc:	80 93 1f 01 	sts	0x011F, r24
+	segment_data[4] = dec_to_7seg[(sum/1000) % 10];
+ 1e0:	9e 01       	movw	r18, r28
+ 1e2:	36 95       	lsr	r19
+ 1e4:	27 95       	ror	r18
+ 1e6:	36 95       	lsr	r19
+ 1e8:	27 95       	ror	r18
+ 1ea:	36 95       	lsr	r19
+ 1ec:	27 95       	ror	r18
+ 1ee:	a5 ec       	ldi	r26, 0xC5	; 197
+ 1f0:	b0 e2       	ldi	r27, 0x20	; 32
+ 1f2:	0e 94 9d 01 	call	0x33a	; 0x33a <__umulhisi3>
+ 1f6:	ac 01       	movw	r20, r24
+ 1f8:	52 95       	swap	r21
+ 1fa:	42 95       	swap	r20
+ 1fc:	4f 70       	andi	r20, 0x0F	; 15
+ 1fe:	45 27       	eor	r20, r21
+ 200:	5f 70       	andi	r21, 0x0F	; 15
+ 202:	45 27       	eor	r20, r21
+ 204:	9a 01       	movw	r18, r20
+ 206:	ad ec       	ldi	r26, 0xCD	; 205
+ 208:	bc ec       	ldi	r27, 0xCC	; 204
+ 20a:	0e 94 9d 01 	call	0x33a	; 0x33a <__umulhisi3>
+ 20e:	96 95       	lsr	r25
+ 210:	87 95       	ror	r24
+ 212:	96 95       	lsr	r25
+ 214:	87 95       	ror	r24
+ 216:	96 95       	lsr	r25
+ 218:	87 95       	ror	r24
+ 21a:	9c 01       	movw	r18, r24
+ 21c:	22 0f       	add	r18, r18
+ 21e:	33 1f       	adc	r19, r19
+ 220:	88 0f       	add	r24, r24
+ 222:	99 1f       	adc	r25, r25
+ 224:	88 0f       	add	r24, r24
+ 226:	99 1f       	adc	r25, r25
+ 228:	88 0f       	add	r24, r24
+ 22a:	99 1f       	adc	r25, r25
+ 22c:	82 0f       	add	r24, r18
+ 22e:	93 1f       	adc	r25, r19
+ 230:	48 1b       	sub	r20, r24
+ 232:	59 0b       	sbc	r21, r25
+ 234:	fa 01       	movw	r30, r20
+ 236:	e0 50       	subi	r30, 0x00	; 0
+ 238:	ff 4f       	sbci	r31, 0xFF	; 255
+ 23a:	80 81       	ld	r24, Z
+ 23c:	80 93 20 01 	sts	0x0120, r24
+
+	segment_data[2] = 0xFF;
+ 240:	8f ef       	ldi	r24, 0xFF	; 255
+ 242:	80 93 1e 01 	sts	0x011E, r24
+
+	//blank out leading zero digits 
+	if(sum<1000) segment_data[4] = 0xFF;
+ 246:	c8 3e       	cpi	r28, 0xE8	; 232
+ 248:	93 e0       	ldi	r25, 0x03	; 3
+ 24a:	d9 07       	cpc	r29, r25
+ 24c:	58 f4       	brcc	.+22     	; 0x264 <segsum+0x156>
+ 24e:	80 93 20 01 	sts	0x0120, r24
+	if(sum<100) segment_data[3] = 0xFF;
+ 252:	c4 36       	cpi	r28, 0x64	; 100
+ 254:	d1 05       	cpc	r29, r1
+ 256:	30 f4       	brcc	.+12     	; 0x264 <segsum+0x156>
+ 258:	80 93 1f 01 	sts	0x011F, r24
+	if(sum<10) segment_data[1] = 0xFF;
+ 25c:	2a 97       	sbiw	r28, 0x0a	; 10
+ 25e:	10 f4       	brcc	.+4      	; 0x264 <segsum+0x156>
+ 260:	80 93 1d 01 	sts	0x011D, r24
+	return;
+}//segment_sum
+ 264:	df 91       	pop	r29
+ 266:	cf 91       	pop	r28
+ 268:	08 95       	ret
+
+0000026a <main>:
+//***********************************************************************************
+uint8_t main()
+{
+	uint8_t i = 0;
+	uint16_t count = 0x0000;
+    DDRE = 0xFF;
+ 26a:	8f ef       	ldi	r24, 0xFF	; 255
+ 26c:	82 b9       	out	0x02, r24	; 2
+    PORTE = 0x00;
+ 26e:	13 b8       	out	0x03, r1	; 3
+	DDRB = 0xF0; //set port bits 4-7 B as outputs
+ 270:	80 ef       	ldi	r24, 0xF0	; 240
+ 272:	87 bb       	out	0x17, r24	; 23
+
+//***********************************************************************************
+uint8_t main()
+{
+	uint8_t i = 0;
+	uint16_t count = 0x0000;
+ 274:	c0 e0       	ldi	r28, 0x00	; 0
+ 276:	d0 e0       	ldi	r29, 0x00	; 0
+    PORTE = 0x00;
+	DDRB = 0xF0; //set port bits 4-7 B as outputs
+	while(1){
+  		_delay_ms(1); //insert loop delay for debounce
+  		DDRA = 0x00; //make PORTA an input port with pullups
+		PORTA = 0xFF; 
+ 278:	cc 24       	eor	r12, r12
+ 27a:	ca 94       	dec	r12
+  		PORTB = 0xF0; //enable tristate buffer for pushbutton switches
+ 27c:	90 ef       	ldi	r25, 0xF0	; 240
+ 27e:	d9 2e       	mov	r13, r25
+			      //The logic for tristate buffer to be enabled is 
+			      // 101 for bits 4-6. (01010000)
+ 		for (i=0; i<8; i++) { //now check each button and increment the count as needed
+                	if (chk_buttons(i)) {
+                       		count += (1<<i);	
+ 280:	ee 24       	eor	r14, r14
+ 282:	e3 94       	inc	r14
+ 284:	f1 2c       	mov	r15, r1
+ 286:	0c e1       	ldi	r16, 0x1C	; 28
+ 288:	11 e0       	ldi	r17, 0x01	; 1
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 28a:	8f e9       	ldi	r24, 0x9F	; 159
+ 28c:	9f e0       	ldi	r25, 0x0F	; 15
+ 28e:	01 97       	sbiw	r24, 0x01	; 1
+ 290:	f1 f7       	brne	.-4      	; 0x28e <main+0x24>
+ 292:	00 c0       	rjmp	.+0      	; 0x294 <main+0x2a>
+ 294:	00 00       	nop
+    DDRE = 0xFF;
+    PORTE = 0x00;
+	DDRB = 0xF0; //set port bits 4-7 B as outputs
+	while(1){
+  		_delay_ms(1); //insert loop delay for debounce
+  		DDRA = 0x00; //make PORTA an input port with pullups
+ 296:	1a ba       	out	0x1a, r1	; 26
+		PORTA = 0xFF; 
+ 298:	cb ba       	out	0x1b, r12	; 27
+  		PORTB = 0xF0; //enable tristate buffer for pushbutton switches
+ 29a:	d8 ba       	out	0x18, r13	; 24
+ 29c:	ec e0       	ldi	r30, 0x0C	; 12
+ 29e:	f1 e0       	ldi	r31, 0x01	; 1
+ 2a0:	40 e0       	ldi	r20, 0x00	; 0
+ 2a2:	50 e0       	ldi	r21, 0x00	; 0
+ 2a4:	05 c0       	rjmp	.+10     	; 0x2b0 <main+0x46>
+ 2a6:	4f 5f       	subi	r20, 0xFF	; 255
+ 2a8:	5f 4f       	sbci	r21, 0xFF	; 255
+			      //The logic for tristate buffer to be enabled is 
+			      // 101 for bits 4-6. (01010000)
+ 		for (i=0; i<8; i++) { //now check each button and increment the count as needed
+ 2aa:	48 30       	cpi	r20, 0x08	; 8
+ 2ac:	51 05       	cpc	r21, r1
+ 2ae:	31 f1       	breq	.+76     	; 0x2fc <main+0x92>
+//Expects active low pushbuttons on PINA port.  Debounce time is determined by 
+//external loop delay times 12. 
+//
+uint8_t chk_buttons(uint8_t button) {
+	static uint16_t state[8] = {0};
+	state[button] = (state[button]<<1) | (! bit_is_clear(PINA, button)) | 0xE000;
+ 2b0:	99 b3       	in	r25, 0x19	; 25
+ 2b2:	20 81       	ld	r18, Z
+ 2b4:	31 81       	ldd	r19, Z+1	; 0x01
+ 2b6:	22 0f       	add	r18, r18
+ 2b8:	33 1f       	adc	r19, r19
+ 2ba:	b9 01       	movw	r22, r18
+ 2bc:	70 6e       	ori	r23, 0xE0	; 224
+ 2be:	29 2f       	mov	r18, r25
+ 2c0:	30 e0       	ldi	r19, 0x00	; 0
+ 2c2:	04 2e       	mov	r0, r20
+ 2c4:	02 c0       	rjmp	.+4      	; 0x2ca <main+0x60>
+ 2c6:	35 95       	asr	r19
+ 2c8:	27 95       	ror	r18
+ 2ca:	0a 94       	dec	r0
+ 2cc:	e2 f7       	brpl	.-8      	; 0x2c6 <main+0x5c>
+ 2ce:	21 70       	andi	r18, 0x01	; 1
+ 2d0:	33 27       	eor	r19, r19
+ 2d2:	26 2b       	or	r18, r22
+ 2d4:	37 2b       	or	r19, r23
+ 2d6:	21 93       	st	Z+, r18
+ 2d8:	31 93       	st	Z+, r19
+	if (state[button] == 0xF000) return 1;
+ 2da:	21 15       	cp	r18, r1
+ 2dc:	30 4f       	sbci	r19, 0xF0	; 240
+ 2de:	19 f7       	brne	.-58     	; 0x2a6 <main+0x3c>
+  		PORTB = 0xF0; //enable tristate buffer for pushbutton switches
+			      //The logic for tristate buffer to be enabled is 
+			      // 101 for bits 4-6. (01010000)
+ 		for (i=0; i<8; i++) { //now check each button and increment the count as needed
+                	if (chk_buttons(i)) {
+                       		count += (1<<i);	
+ 2e0:	c7 01       	movw	r24, r14
+ 2e2:	04 2e       	mov	r0, r20
+ 2e4:	02 c0       	rjmp	.+4      	; 0x2ea <main+0x80>
+ 2e6:	88 0f       	add	r24, r24
+ 2e8:	99 1f       	adc	r25, r25
+ 2ea:	0a 94       	dec	r0
+ 2ec:	e2 f7       	brpl	.-8      	; 0x2e6 <main+0x7c>
+ 2ee:	c8 0f       	add	r28, r24
+ 2f0:	d9 1f       	adc	r29, r25
+ 2f2:	4f 5f       	subi	r20, 0xFF	; 255
+ 2f4:	5f 4f       	sbci	r21, 0xFF	; 255
+  		DDRA = 0x00; //make PORTA an input port with pullups
+		PORTA = 0xFF; 
+  		PORTB = 0xF0; //enable tristate buffer for pushbutton switches
+			      //The logic for tristate buffer to be enabled is 
+			      // 101 for bits 4-6. (01010000)
+ 		for (i=0; i<8; i++) { //now check each button and increment the count as needed
+ 2f6:	48 30       	cpi	r20, 0x08	; 8
+ 2f8:	51 05       	cpc	r21, r1
+ 2fa:	d1 f6       	brne	.-76     	; 0x2b0 <main+0x46>
+                	if (chk_buttons(i)) {
+                       		count += (1<<i);	
+			}
+		}//for loop
+
+  		PORTB = 0x00; //disable tristate buffer for pushbutton switches
+ 2fc:	18 ba       	out	0x18, r1	; 24
+  		
+		if (count > 1023) {     //bound the count to 0 - 1023
+ 2fe:	c1 15       	cp	r28, r1
+ 300:	84 e0       	ldi	r24, 0x04	; 4
+ 302:	d8 07       	cpc	r29, r24
+ 304:	10 f0       	brcs	.+4      	; 0x30a <main+0xa0>
+                	count -= 1023;
+ 306:	cf 5f       	subi	r28, 0xFF	; 255
+ 308:	d3 40       	sbci	r29, 0x03	; 3
+		}
+  		
+		segsum(count);  //break up the disp_value to 4, BCD digits in the array: call (segsum)
+ 30a:	ce 01       	movw	r24, r28
+ 30c:	0e 94 87 00 	call	0x10e	; 0x10e <segsum>
+  		
+		//bound a counter (0-4) to keep track of digit to display 
+		DDRA = 0xFF; //make PORTA an output
+ 310:	ca ba       	out	0x1a, r12	; 26
+ 312:	ec e1       	ldi	r30, 0x1C	; 28
+ 314:	f1 e0       	ldi	r31, 0x01	; 1
+ 316:	8e 2f       	mov	r24, r30
+ 318:	80 1b       	sub	r24, r16
+  		
+		for(i=0; i<5; i++) {
+  			PORTA = segment_data[i];  //send 7 segment code to LED segments
+ 31a:	91 91       	ld	r25, Z+
+ 31c:	9b bb       	out	0x1b, r25	; 27
+			PORTB = (i<<4);//send PORTB the digit to display
+ 31e:	82 95       	swap	r24
+ 320:	80 7f       	andi	r24, 0xF0	; 240
+ 322:	88 bb       	out	0x18, r24	; 24
+ 324:	8f e9       	ldi	r24, 0x9F	; 159
+ 326:	9f e0       	ldi	r25, 0x0F	; 15
+ 328:	01 97       	sbiw	r24, 0x01	; 1
+ 32a:	f1 f7       	brne	.-4      	; 0x328 <main+0xbe>
+ 32c:	00 c0       	rjmp	.+0      	; 0x32e <main+0xc4>
+ 32e:	00 00       	nop
+		segsum(count);  //break up the disp_value to 4, BCD digits in the array: call (segsum)
+  		
+		//bound a counter (0-4) to keep track of digit to display 
+		DDRA = 0xFF; //make PORTA an output
+  		
+		for(i=0; i<5; i++) {
+ 330:	91 e0       	ldi	r25, 0x01	; 1
+ 332:	e1 32       	cpi	r30, 0x21	; 33
+ 334:	f9 07       	cpc	r31, r25
+ 336:	79 f7       	brne	.-34     	; 0x316 <main+0xac>
+ 338:	a8 cf       	rjmp	.-176    	; 0x28a <main+0x20>
+
+0000033a <__umulhisi3>:
+ 33a:	a2 9f       	mul	r26, r18
+ 33c:	b0 01       	movw	r22, r0
+ 33e:	b3 9f       	mul	r27, r19
+ 340:	c0 01       	movw	r24, r0
+ 342:	a3 9f       	mul	r26, r19
+ 344:	70 0d       	add	r23, r0
+ 346:	81 1d       	adc	r24, r1
+ 348:	11 24       	eor	r1, r1
+ 34a:	91 1d       	adc	r25, r1
+ 34c:	b2 9f       	mul	r27, r18
+ 34e:	70 0d       	add	r23, r0
+ 350:	81 1d       	adc	r24, r1
+ 352:	11 24       	eor	r1, r1
+ 354:	91 1d       	adc	r25, r1
+ 356:	08 95       	ret
+
+00000358 <_exit>:
+ 358:	f8 94       	cli
+
+0000035a <__stop_program>:
+ 35a:	ff cf       	rjmp	.-2      	; 0x35a <__stop_program>
